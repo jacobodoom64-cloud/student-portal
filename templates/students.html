@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Students{% endblock %}
+
+{% block content %}
+<section class="students-page">
+  <p class="info-banner">Info! All students records table</p>
+
+  <form class="filter-bar" method="GET" action="{{ url_for('students_index') }}">
+    <input type="text" name="name" placeholder="Search Record By Name Only" value="{{ filters.name }}" />
+
+    <select name="admission_status">
+      <option value="" {% if not filters.admission_status %}selected{% endif %}>Select Admission-Status</option>
+      {% for status in statuses %}
+        <option value="{{ status }}" {% if filters.admission_status == status %}selected{% endif %}>
+          {{ status | capitalize }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <select name="gender">
+      <option value="" {% if not filters.gender %}selected{% endif %}>Select Gender</option>
+      <option value="male" {% if filters.gender == 'male' %}selected{% endif %}>Male</option>
+      <option value="female" {% if filters.gender == 'female' %}selected{% endif %}>Female</option>
+    </select>
+
+    <input type="number" name="jamb_score" placeholder="Enter Jamb Score" value="{{ filters.jamb_score }}" />
+
+    <button type="submit" class="btn btn-search">Search</button>
+  </form>
+
+  <table class="students-table">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Jamb Score</th>
+        <th>Admission Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</td>
+        <td>{{ student.gender | capitalize }}</td>
+        <td>{{ student.jamb_score }}</td>
+        <td><span class="status-badge status-{{ student.admission_status }}">{{ student.admission_status | capitalize }}</span></td>
+        <td>
+          <a href="{{ url_for('student_details', student_id=student.id) }}" class="btn btn-view" aria-label="View {{ student.first_name }}'s details">
+            View
+          </a>
+        </td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="6" class="empty-row">No student records match your search.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

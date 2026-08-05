@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Student Portal{% endblock %} | Startocode</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- ============ SHARED NAVBAR ============ -->
+  <header class="navbar">
+    <a href="{{ url_for('index') }}" class="logo">
+      star<span class="logo-accent">to</span>code
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('students_index') }}">Students</a>
+      <a href="{{ url_for('apply') }}" class="btn btn-nav">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- ============ FLASH MESSAGES ============ -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-container">
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- ============ PAGE CONTENT ============ -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ============ SHARED FOOTER ============ -->
+  <footer class="site-footer">
+    <p>All rights reserved &copy; Startocode {{ current_year }}</p>
+  </footer>
+
+  <script>
+    document.getElementById("navToggle").addEventListener("click", function () {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+  </script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

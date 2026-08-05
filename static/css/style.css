@@ -1,0 +1,557 @@
+/* =========================================================
+   style.css
+   Palette sampled from the project mockups:
+   --purple      : #6e3c93   navbar / footer / headings
+   --purple-deep : #4b3a68   chalkboard / dark accents
+   --purple-bright: #9a00ff  logo accent, links
+   --blue-bg     : #d2e2f1   form section background
+   --blue-accent : #3692e0   buttons: search / submit / view
+   --orange      : #e09238   status "admitted" accent
+   --ink         : #101112
+   ========================================================= */
+
+:root {
+  --purple: #6e3c93;
+  --purple-deep: #4b3a68;
+  --purple-bright: #9a00ff;
+  --blue-bg: #d2e2f1;
+  --blue-accent: #3692e0;
+  --orange: #e09238;
+  --ink: #101112;
+  --gray: #6b6b6b;
+  --error: #d32f2f;
+  --success: #2e7d32;
+  --white: #ffffff;
+  --radius: 10px;
+  --max-width: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.btn-primary {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.btn-nav {
+  background: var(--purple-bright);
+  color: var(--white);
+  padding: 0.5rem 1.2rem;
+}
+
+.btn-search {
+  background: var(--blue-accent);
+  color: var(--white);
+}
+
+.btn-view {
+  background: var(--blue-accent);
+  color: var(--white);
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+/* =============== NAVBAR =============== */
+.navbar {
+  background: var(--purple);
+  color: var(--white);
+  padding: 1rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.logo-accent {
+  color: var(--orange);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a:not(.btn) {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+}
+
+/* =============== FLASH MESSAGES =============== */
+.flash-container {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding: 0 5%;
+}
+
+.flash {
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.flash-success {
+  background: #e6f4ea;
+  color: var(--success);
+  border: 1px solid #b7dfc2;
+}
+
+.flash-error {
+  background: #fdecea;
+  color: var(--error);
+  border: 1px solid #f3c2bd;
+}
+
+/* =============== LANDING / INTRO SECTION =============== */
+.intro {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  min-height: 60vh;
+}
+
+.intro-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.intro-text h1 {
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  color: var(--purple);
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: var(--orange);
+  font-size: 1.05rem;
+  margin-bottom: 1.75rem;
+  max-width: 420px;
+}
+
+.intro-image {
+  flex: 1;
+  max-width: 420px;
+}
+
+/* =============== FORM PAGE =============== */
+.form-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 5%;
+}
+
+.form-card {
+  background: var(--blue-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.form-card h1 {
+  text-align: center;
+  color: var(--purple);
+  margin-bottom: 0.3rem;
+}
+
+.form-hint {
+  text-align: center;
+  color: var(--orange);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading {
+  background: var(--purple-deep);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #c3d3e0;
+  border-radius: 6px;
+  background: var(--white);
+  font-size: 0.9rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: 2px solid var(--blue-accent);
+}
+
+.form-group input.invalid,
+.field-error + input,
+input.invalid {
+  border-color: var(--error);
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.6rem 0;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.field-error {
+  display: block;
+  color: var(--error);
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  font-size: 1rem;
+}
+
+/* =============== STUDENTS INDEX PAGE =============== */
+.students-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 5%;
+}
+
+.info-banner {
+  background: var(--blue-bg);
+  color: var(--purple);
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.filter-bar input[name="name"] {
+  flex: 2;
+  min-width: 180px;
+}
+
+.filter-bar select,
+.filter-bar input[name="jamb_score"] {
+  flex: 1;
+  min-width: 140px;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.9rem;
+}
+
+.students-table thead {
+  background: var(--blue-bg);
+}
+
+.students-table th,
+.students-table td {
+  padding: 0.75rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.students-table th {
+  color: var(--purple);
+}
+
+.students-table tbody tr:hover {
+  background: #f8fbfd;
+}
+
+.empty-row {
+  text-align: center;
+  color: var(--gray);
+  padding: 2rem 0 !important;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-admitted {
+  background: #e0f7e9;
+  color: var(--success);
+}
+
+.status-rejected {
+  background: #fdecea;
+  color: var(--error);
+}
+
+.status-undecided {
+  background: #eef1f5;
+  color: var(--gray);
+}
+
+/* =============== DETAILS PAGE =============== */
+.details-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 5%;
+}
+
+.details-card {
+  background: var(--white);
+  border: 1px solid #eee;
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.details-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.details-photo {
+  text-align: center;
+}
+
+.details-photo img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 0.6rem;
+}
+
+.details-personal {
+  flex: 1;
+  min-width: 240px;
+}
+
+.details-personal h2 {
+  color: var(--purple);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.details-personal p {
+  color: #444;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.details-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.details-row p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.status-changer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.status-changer label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-changer select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.status-update-message {
+  font-size: 0.8rem;
+}
+
+.status-update-message.success {
+  color: var(--success);
+}
+
+.status-update-message.error {
+  color: var(--error);
+}
+
+/* =============== FOOTER =============== */
+.site-footer {
+  background: var(--purple);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 5%;
+  font-size: 0.8rem;
+}
+
+/* =============== RESPONSIVE =============== */
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--purple);
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 1rem;
+    display: none;
+    z-index: 50;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .details-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .students-table th:nth-child(1),
+  .students-table td:nth-child(1) {
+    display: none;
+  }
+}

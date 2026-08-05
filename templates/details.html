@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ student.first_name }} {{ student.last_name }}{% endblock %}
+
+{% block content %}
+<section class="details-page">
+  <div class="details-card">
+
+    <div class="details-header">
+      <div class="details-photo">
+        <img src="{{ url_for('static', filename='uploads/' + student.image_filename) }}"
+             alt="Passport photograph of {{ student.first_name }} {{ student.last_name }}" />
+        <span class="status-badge status-{{ student.admission_status }}" id="statusBadge">
+          {{ student.admission_status | capitalize }}
+        </span>
+      </div>
+
+      <div class="details-personal">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> {{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Gender:</strong> {{ student.gender | capitalize }}</p>
+        <p><strong>Phone Number:</strong> {{ student.phone_number }}</p>
+        <p><strong>Date Of Birth:</strong> {{ student.date_of_birth }}</p>
+        <p><strong>Address:</strong> {{ student.address }}</p>
+      </div>
+    </div>
+
+    <h3 class="section-heading">Other Information</h3>
+    <div class="details-row">
+      <p><strong>State Of Origin:</strong> {{ student.state_of_origin }}</p>
+      <p><strong>Local Govt:</strong> {{ student.lga }}</p>
+    </div>
+
+    <h3 class="section-heading">Academics Related Information</h3>
+    <div class="details-row">
+      <p><strong>Next Of Kin:</strong> {{ student.next_of_kin }}</p>
+      <p><strong>Jamb Score:</strong> {{ student.jamb_score }}</p>
+      <p><strong>Status:</strong> <span id="statusText">{{ student.admission_status | capitalize }}</span></p>
+      <div class="status-changer">
+        <label for="statusSelect">Change Status:</label>
+        <select id="statusSelect" data-student-id="{{ student.id }}">
+          <option value="" selected disabled>Change Status</option>
+          {% for status in statuses %}
+            <option value="{{ status }}" {% if student.admission_status == status %}disabled{% endif %}>
+              {{ status | capitalize }}
+            </option>
+          {% endfor %}
+        </select>
+        <span id="statusUpdateMessage" class="status-update-message"></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/status-update.js') }}"></script>
+{% endblock %}

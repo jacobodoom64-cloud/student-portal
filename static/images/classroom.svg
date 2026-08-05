@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft background blob -->
+  <ellipse cx="200" cy="180" rx="190" ry="150" fill="#EDE4F7" />
+
+  <!-- Chalkboard -->
+  <rect x="70" y="40" width="150" height="110" rx="8" fill="#3B2E52" />
+  <rect x="82" y="52" width="126" height="86" rx="4" fill="#4B3A68" />
+  <line x1="95" y1="75" x2="150" y2="75" stroke="#EDE4F7" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+  <line x1="95" y1="92" x2="175" y2="92" stroke="#EDE4F7" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+  <line x1="95" y1="109" x2="140" y2="109" stroke="#EDE4F7" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Teacher -->
+  <circle cx="245" cy="95" r="18" fill="#CA8A5E" />
+  <rect x="228" y="112" width="34" height="60" rx="12" fill="#6E3C93" />
+  <rect x="222" y="120" width="14" height="45" rx="7" fill="#6E3C93" />
+  <rect x="256" y="120" width="14" height="45" rx="7" fill="#6E3C93" />
+
+  <!-- Desk row -->
+  <rect x="55" y="230" width="290" height="14" rx="4" fill="#3692E0" opacity="0.25" />
+
+  <!-- Student 1 -->
+  <circle cx="110" cy="205" r="15" fill="#F3C79E" />
+  <rect x="95" y="220" width="30" height="45" rx="10" fill="#9A00FF" />
+
+  <!-- Student 2 -->
+  <circle cx="170" cy="200" r="15" fill="#CA8A5E" />
+  <rect x="155" y="215" width="30" height="50" rx="10" fill="#3692E0" />
+
+  <!-- Student 3 -->
+  <circle cx="230" cy="205" r="15" fill="#F3C79E" />
+  <rect x="215" y="220" width="30" height="45" rx="10" fill="#E09238" />
+
+  <!-- Student 4 -->
+  <circle cx="290" cy="200" r="15" fill="#CA8A5E" />
+  <rect x="275" y="215" width="30" height="50" rx="10" fill="#6E3C93" />
+
+  <!-- Floating accents -->
+  <circle cx="45" cy="90" r="8" fill="#3692E0" opacity="0.5" />
+  <circle cx="365" cy="140" r="10" fill="#E09238" opacity="0.5" />
+  <circle cx="330" cy="60" r="6" fill="#9A00FF" opacity="0.5" />
+</svg>

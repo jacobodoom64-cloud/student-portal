@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="intro">
+  <div class="intro-text">
+    <h1>Student Main Portal</h1>
+    <p class="tagline">
+      Unlock your student portal registration - join us today for
+      your online courses.
+    </p>
+    <a href="{{ url_for('apply') }}" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <div class="intro-image">
+    <img src="{{ url_for('static', filename='images/classroom.svg') }}" alt="Illustration of a teacher and students in a classroom" />
+  </div>
+</section>
+{% endblock %}
